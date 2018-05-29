@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android = "http://schemas.android.com/apk/res/android" >
+
+    <!-- 白色背景 -->
+    <item>
+        <color android:color="@color/color_spn_back" />
+    </item>
+    <!-- 白色背景 -->
+    <item android:bottom="1px" android:drawable="@color/color_spn_back" />
+
+</layer-list >

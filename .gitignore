@@ -1,0 +1,20 @@
+# apply from stackoverflow by sam
+#
+# http://stackoverflow.com/questions/16736856/what-should-be-in-my-gitignore-for-an-android-studio-project
+#
+
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+
+# Android Studio
+*.iml
+.idea
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle
+build/
