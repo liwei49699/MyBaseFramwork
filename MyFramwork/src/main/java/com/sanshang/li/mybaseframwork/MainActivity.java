@@ -1,8 +1,12 @@
 package com.sanshang.li.mybaseframwork;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +16,7 @@ import com.sanshang.li.mybaseframwork.service.NetWorkService;
 import com.sanshang.li.mybaseframwork.translucent.TranslucentActivity;
 import com.sanshang.li.mybaseframwork.util.DeviceUtil;
 import com.sanshang.li.mybaseframwork.util.LogUtils;
+import com.sanshang.li.mybaseframwork.util.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,7 +74,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void handlerMsg(Message msg) {
 
-        Toast.makeText(MainActivity.this, msg.arg1 + "==" + msg.arg2, Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(MainActivity.this, msg.arg1 + "==" + msg.arg2, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+
+        ViewGroup rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        View inflate = getLayoutInflater().inflate(R.layout.toast_simple_show, rootView,false);
+        toast.setView(inflate);
+        toast.show();
+
 
         startActivity(new Intent(this, TranslucentActivity.class));
     }
