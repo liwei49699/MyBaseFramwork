@@ -7,6 +7,7 @@ import android.os.Process;
 import android.util.Log;
 
 import com.sanshang.li.mybaseframwork.util.LogUtils;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Stack;
 
@@ -30,6 +31,10 @@ public class MyApplication extends Application {
         return appInstance;
     }
 
+    public static Activity getCurrentActivity() {
+        return sCurrentActivity;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -38,6 +43,13 @@ public class MyApplication extends Application {
 
         // 监听生命周期
         registerActivityLifecycleCallbacks(new MyActivityLifecycleCallbacks());
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        } else {
+
+            LeakCanary.install(this);
+        }
     }
 
     @Override
