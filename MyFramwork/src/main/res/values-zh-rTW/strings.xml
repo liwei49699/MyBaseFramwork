@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyBaseFramwork</string>
+    <string name="tv_toast_message">文本繁</string>
+    <string name="iv_sound_toast">toast图片繁</string>
+</resources>

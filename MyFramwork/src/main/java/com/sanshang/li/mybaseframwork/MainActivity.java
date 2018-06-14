@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import com.sanshang.li.mybaseframwork.translucent.TranslucentActivity;
 import com.sanshang.li.mybaseframwork.util.DeviceUtil;
 import com.sanshang.li.mybaseframwork.util.LogUtils;
 import com.sanshang.li.mybaseframwork.util.ToastUtils;
+
+import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +56,28 @@ public class MainActivity extends BaseActivity {
         LogUtils.d("MainActivity onCreate()" + width);
         LogUtils.d("MainActivity onCreate()" + height);
         LogUtils.d("MainActivity onCreate()" + stateHeight);
+
+        String offsetLon = "21";
+        String offsetAlt = "21";
+
+        String accuracy = "0";
+        if(!TextUtils.isEmpty(offsetLon) && !"null".equals(offsetLon)
+                && !TextUtils.isEmpty(offsetAlt) && !"null".equals(offsetAlt)) {
+
+            double lon = Math.pow(Double.parseDouble(offsetLon),2);
+            double alt = Math.pow(Double.parseDouble(offsetAlt), 2);
+
+            double sqrt = Math.sqrt(lon + alt);
+
+            //数字格式化 用BigDecimal表示，然后在输出string
+
+            DecimalFormat df = new DecimalFormat("0.00");
+            String formatAccuracy = df.format(sqrt);
+            accuracy = formatAccuracy;
+        }
+
+        Log.d("--TAG--", "MainActivity onCreate():" + accuracy);
+
     }
 
     @Override

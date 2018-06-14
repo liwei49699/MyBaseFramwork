@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.sanshang.li.mybaseframwork"
@@ -9,34 +10,81 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "versionCode"
     }
+
+    //多渠道
+    productFlavors {
+        google {
+            manifestPlaceholders = [CHANNEL_VALUE: "google"]
+        }
+        qh360 {
+            manifestPlaceholders = [CHANNEL_VALUE: "360"]
+        }
+        baidu {
+            manifestPlaceholders = [CHANNEL_VALUE: "baidu"]
+        }
+        self {
+            manifestPlaceholders = [CHANNEL_VALUE: "self"]
+        }
+    }
+
+    //签名
+    signingConfigs {
+        pack {
+            keyAlias 'base'
+            keyPassword 'L496991755w'
+            storeFile file('C:/Users/li/Desktop/GitCoding/MyBaseFramwork/MyBaseFramwork.jks')
+            storePassword 'L496991755w'
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.pack
+        }
+        debug {
+            signingConfig signingConfigs.pack
+        }
+    }
+
+    //自定义名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+
+            outputFileName = "MyBaseFramwork__v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+        }
+    }
+
+    //忽略参与编译的文件
+    sourceSets {
+        main {
+            java {
+                //包
+//                exclude 'com/msn/baidu/*'
+                //具体的文件
+//                exclude 'com/msn/util/bluetooth/BTConnecter.java'
+            }
         }
     }
 }
 
 dependencies {
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14-RC1'
-
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
-
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
     implementation 'com.google.code.gson:gson:2.8.4'
-
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }
