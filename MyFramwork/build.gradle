@@ -31,23 +31,23 @@ android {
     }
 
     //签名
-    signingConfigs {
-        pack {
-            keyAlias 'base'
-            keyPassword 'L496991755w'
-            storeFile file('C:/Users/li/Desktop/GitCoding/MyBaseFramwork/MyBaseFramwork.jks')
-            storePassword 'L496991755w'
-        }
-    }
+//    signingConfigs {
+//        pack {
+//            keyAlias 'base'
+//            keyPassword 'L496991755w'
+//            storeFile file('C:/Users/li/Desktop/GitCoding/MyBaseFramwork/MyBaseFramwork.jks')
+//            storePassword 'L496991755w'
+//        }
+//    }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.pack
+//            signingConfig signingConfigs.pack
         }
         debug {
-            signingConfig signingConfigs.pack
+//            signingConfig signingConfigs.pack
         }
     }
 

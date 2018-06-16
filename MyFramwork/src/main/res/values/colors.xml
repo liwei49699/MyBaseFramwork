@@ -7,4 +7,5 @@
     <color name="color_white_activity_back">#F0F0F0</color>
     <color name="color_gray_text">#4b4b58</color>
     <color name="color_spn_back">#333244</color>
+    <color name="black_color">#000000</color>
 </resources>

@@ -1,6 +1,5 @@
 package com.sanshang.li.mybaseframwork;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
@@ -9,7 +8,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +16,6 @@ import com.sanshang.li.mybaseframwork.service.NetWorkService;
 import com.sanshang.li.mybaseframwork.translucent.TranslucentActivity;
 import com.sanshang.li.mybaseframwork.util.DeviceUtil;
 import com.sanshang.li.mybaseframwork.util.LogUtils;
-import com.sanshang.li.mybaseframwork.util.ToastUtils;
 
 import java.text.DecimalFormat;
 

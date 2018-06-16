@@ -16,4 +16,16 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
+    <com.sanshang.li.mybaseframwork.view.MyTopBar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@+id/tv_content"
+        app:title="@string/titleName"
+        app:leftBack="@drawable/iv_title_back"
+        app:rightMore="@drawable/iv_title_menu"
+        app:padding="@dimen/dp_10"
+        app:textSize="@dimen/sp_15"
+        app:textColor="@color/black_color"
+        app:barBack="@color/colorPrimary"/>
+
 </RelativeLayout>

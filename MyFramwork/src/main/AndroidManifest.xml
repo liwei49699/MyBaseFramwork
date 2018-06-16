@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.sanshang.li.mybaseframwork">
+    package="com.sanshang.li.mybaseframwork">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".base.MyApplication"
@@ -16,19 +16,20 @@
         android:theme="@style/MyBaseAppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <service
             android:name=".service.NetWorkService"
-            android:enabled="true"/>
+            android:enabled="true" />
 
-        <activity android:name=".translucent.TranslucentActivity"
-            android:theme="@style/TranslucentTheme">
-        </activity>
+        <activity
+            android:name=".translucent.TranslucentActivity"
+            android:theme="@style/TranslucentTheme"></activity>
+        <activity android:name=".javascript.JavaScriptActivity"></activity>
     </application>
 
 </manifest>

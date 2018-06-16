@@ -1,7 +1,9 @@
 package com.sanshang.li.mybaseframwork.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,6 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected static UIHandler mHandler = new UIHandler(Looper.getMainLooper());
 
+    protected Context mContext;
+
     private ImageView ivTitleBack;
     private TextView tvTitleName;
     private ImageView ivTitleMenu;
@@ -48,6 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private  boolean showTitle = true;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         // 这句很关键，注意是调用父类的方法
         super.setContentView(R.layout.activity_base);
+
+        mContext = this;
     }
 
     private void initToolbar() {
