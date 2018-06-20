@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.sanshang.li.mybaseframwork"
@@ -12,8 +11,14 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         flavorDimensions "versionCode"
-    }
 
+        //使用java8的新特性
+        // one
+        // 3.x 不需要
+//        jackOptions {
+//            enabled true
+//        }
+    }
     //多渠道
     productFlavors {
         google {
@@ -29,7 +34,6 @@ android {
             manifestPlaceholders = [CHANNEL_VALUE: "self"]
         }
     }
-
     //签名
 //    signingConfigs {
 //        pack {
@@ -39,7 +43,6 @@ android {
 //            storePassword 'L496991755w'
 //        }
 //    }
-
     buildTypes {
         release {
             minifyEnabled true
@@ -50,7 +53,6 @@ android {
 //            signingConfig signingConfigs.pack
         }
     }
-
     //自定义名称
     android.applicationVariants.all { variant ->
         variant.outputs.all {
@@ -58,7 +60,6 @@ android {
             outputFileName = "MyBaseFramwork__v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
         }
     }
-
     //忽略参与编译的文件
     sourceSets {
         main {
@@ -66,10 +67,17 @@ android {
                 //包
 //                exclude 'com/msn/baidu/*'
                 //具体的文件
-//                exclude 'com/msn/util/bluetooth/BTConnecter.java'
+//                exclude 'com/msn/util/bluetooth/BTConnect.java'
             }
         }
     }
+    //学习期间先不用
+    //two
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+    buildToolsVersion '27.0.1'
 }
 
 dependencies {
@@ -87,4 +95,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.4'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+    //    compile 'io.reactivex:rxjava-joins:0.22.0'
+    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.hwangjr.rxbus:rxbus:1.0.6'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
 }

@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
     </style>
 
     <!-- Base application theme. -->
@@ -35,7 +39,7 @@
 
     </style>
 
-    //透明的状态栏
+    <!--透明的状态栏-->
     <style name="TranslucentTheme" parent="AppTheme">
     </style>
 

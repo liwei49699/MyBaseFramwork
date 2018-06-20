@@ -18,6 +18,7 @@ public class DeviceUtil {
 
     /**
      * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     * +0.5实现4舍5如 int强转会直接去除小数点后面的值
      */
     public static int px2dp(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;

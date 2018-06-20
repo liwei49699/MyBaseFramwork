@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sanshang.li.mybaseframwork">
+          package="com.sanshang.li.mybaseframwork">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".base.MyApplication"
@@ -15,21 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/MyBaseAppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service
             android:name=".service.NetWorkService"
-            android:enabled="true" />
+            android:enabled="true"/>
 
         <activity
             android:name=".translucent.TranslucentActivity"
-            android:theme="@style/TranslucentTheme"></activity>
-        <activity android:name=".javascript.JavaScriptActivity"></activity>
+            android:theme="@style/TranslucentTheme">
+        </activity>
+        <activity
+            android:name=".rxjava.RxJavaActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity android:name=".javascript.JavaScriptActivity"/>
+        <activity android:name=".rxjava.MyRxLifecycleActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

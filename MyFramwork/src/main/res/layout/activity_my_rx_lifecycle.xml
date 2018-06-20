@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sanshang.li.mybaseframwork.rxjava.MyRxLifecycleActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_lifecycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxJava的生命周期"/>
+
+    <Button
+        android:id="@+id/btn_bus_bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxBus的绑定"/>
+
+    <Button
+        android:id="@+id/btn_bus_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxBus消息的发送"/>
+
+    <Button
+        android:id="@+id/btn_third_bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用三方的RxBus绑定"/>
+
+    <Button
+        android:id="@+id/btn_third_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用三方的RxBus消息发送"/>
+
+    <Button
+        android:id="@+id/btn_author_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxPermissions权限请求"/>
+
+    <Button
+        android:id="@+id/btn_author_request_multi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxPermissions多权限请求"/>
+
+    <Button
+        android:id="@+id/btn_author_request_multi_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxPermissions集中多权限请求"/>
+
+</LinearLayout>
