@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 
 /**
  * Created by li on 2018/5/25.
@@ -14,13 +15,14 @@ import android.util.DisplayMetrics;
  * author LiWei
  */
 
-public class DeviceUtil {
+public class DeviceUtils {
 
     /**
      * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
      * +0.5实现4舍5如 int强转会直接去除小数点后面的值
      */
     public static int px2dp(Context context, float pxValue) {
+
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
@@ -37,9 +39,23 @@ public class DeviceUtil {
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
     public static int dp2px(Context context, float dpValue) {
+
+        //float v = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pxValue, context.getResources().getDisplayMetrics());
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+
+    /**
+     * 将sp值转换为px值，保证文字大小不变
+     * @param context
+     * @param spValue
+     * @return
+     */
+    public static int sp2Px(Context context, float spValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
 
     /**
      * 获取DisplayMetrics，包括屏幕高宽，密度等

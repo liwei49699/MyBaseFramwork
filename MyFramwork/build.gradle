@@ -65,9 +65,11 @@ android {
         main {
             java {
                 //包
-//                exclude 'com/msn/baidu/*'
+//                'exclude 'com/msn/baidu/*'
                 //具体的文件
-//                exclude 'com/msn/util/bluetooth/BTConnect.java'
+//                'exclude 'com/msn/util/bluetooth/BTConnect.java'
+                //需要姓名排序的时候可用
+                'exclude com.sanshang.li.mybaseframwork.util.PingYinUtils.java'
             }
         }
     }
@@ -82,11 +84,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14-RC1'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
@@ -101,4 +100,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.hwangjr.rxbus:rxbus:1.0.6'
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+    // 提供了自定义UI图片选择器的基本组件，自定义UI的需求需要添加该依赖
+    compile 'com.github.qingmei2:rximagepicker_support:0.4.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 }

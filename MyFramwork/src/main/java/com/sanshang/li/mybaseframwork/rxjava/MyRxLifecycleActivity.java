@@ -18,6 +18,7 @@ import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Produce;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
+import com.jakewharton.rxbinding2.view.RxView;
 import com.sanshang.li.mybaseframwork.R;
 import com.sanshang.li.mybaseframwork.base.RxBaseActivity;
 import com.tbruyelle.rxpermissions2.Permission;
@@ -59,6 +60,7 @@ public class MyRxLifecycleActivity extends RxBaseActivity implements OnClickList
     Button mBtnAuthorRequestMulti;
     @BindView(R.id.btn_author_request_multi_all)
     Button mBtnAuthorRequestMultiAll;
+
     private RxPermissions mRxPermissions;
 
     @Override

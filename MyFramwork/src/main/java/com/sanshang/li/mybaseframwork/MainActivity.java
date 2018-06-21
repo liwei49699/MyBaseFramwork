@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.sanshang.li.mybaseframwork.base.BaseActivity;
 import com.sanshang.li.mybaseframwork.service.NetWorkService;
 import com.sanshang.li.mybaseframwork.translucent.TranslucentActivity;
-import com.sanshang.li.mybaseframwork.util.DeviceUtil;
+import com.sanshang.li.mybaseframwork.util.DeviceUtils;
 import com.sanshang.li.mybaseframwork.util.LogUtils;
 
 import java.text.DecimalFormat;
@@ -46,9 +46,9 @@ public class MainActivity extends BaseActivity {
         networkIntent = new Intent(this, NetWorkService.class);
         startService(networkIntent);
 
-        int width = DeviceUtil.getWidth(this);
-        int height = DeviceUtil.getHeight(this);
-        int stateHeight = DeviceUtil.getStateHeight(this);
+        int width = DeviceUtils.getWidth(this);
+        int height = DeviceUtils.getHeight(this);
+        int stateHeight = DeviceUtils.getStateHeight(this);
 
         LogUtils.d("MainActivity onCreate()" + width);
         LogUtils.d("MainActivity onCreate()" + height);
