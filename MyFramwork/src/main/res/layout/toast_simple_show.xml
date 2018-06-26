@@ -19,5 +19,4 @@
         android:layout_below="@+id/tv_toast_message"
         android:contentDescription="@string/iv_sound_toast"/>
 
-
 </RelativeLayout>

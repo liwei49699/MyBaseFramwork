@@ -50,6 +50,7 @@ public class FileUtils {
      * @return
      */
     public static String getExtensionName(String filename) {
+
         if ((filename != null) && (filename.length() > 0)) {
             int dot = filename.lastIndexOf('.');
             if ((dot > -1) && (dot < (filename.length() - 1))) {
@@ -63,6 +64,7 @@ public class FileUtils {
      *  获取缓存路径
      */
     public static String getCacheDir(Context context) {
+
         String cacheDir;
         if(FileUtils.isExistSD()){
             //SD存在
@@ -79,6 +81,7 @@ public class FileUtils {
      *  获取SD卡路径
      */
     public static String getSDCardPath() {
+
         if (isExistSD()) {
             return Environment.getExternalStorageDirectory().toString() + "/";
         }
@@ -91,6 +94,7 @@ public class FileUtils {
      * @return
      */
     public static String getSDCacheDir(Context context) {
+
         //api大于8的版本
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
             //目录为/mnt/sdcard/Android/data/com.mt.mtpp/cache
@@ -98,6 +102,15 @@ public class FileUtils {
         }
         String cacheDir = "/Android/data/" + context.getPackageName() + "/cache";
         return Environment.getExternalStorageDirectory().getPath() + cacheDir;
+    }
 
+    /**
+     * 通过文件名获取文件所在外部路径的目录
+     * @param file
+     * @return
+     */
+    public static String getgetAbsFilePath(String file) {
+
+        return new File(Environment.getExternalStorageDirectory(), file).getAbsolutePath();
     }
 }

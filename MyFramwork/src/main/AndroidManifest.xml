@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:name=".base.MyApplication"
@@ -34,16 +35,23 @@
         </activity>
         <activity android:name=".javascript.JavaScriptActivity"/>
         <activity android:name=".rxjava.MyRxLifecycleActivity">
-
         </activity>
         <activity android:name=".rxjava.MyOtherRxActivity">
-
+        </activity>
+        <activity android:name=".drag.MyDragActivity">
+        </activity>
+        <activity android:name=".observer.TestObserverActivity">
+        </activity>
+        <activity android:name=".custom.MyCustomViewActivity">
+        </activity>
+        <activity android:name=".record.RecordActivity">
+        </activity>
+        <activity android:name=".record.OtherRecordActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
     </application>
 

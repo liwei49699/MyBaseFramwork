@@ -1,5 +1,7 @@
 package com.sanshang.li.mybaseframwork.util;
 
+import android.annotation.SuppressLint;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +30,18 @@ public class DateUtils {
     public static final DateFormat DATE_LONG_SHOW1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     public static final DateFormat DATE_LONG_DIY = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
     public static final DateFormat DATE_LONG_DIY_OTHER = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+    /**
+     * 当前时间格式
+     */
+    @SuppressLint("SimpleDateFormat")
+    public static String getTime() {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd-HHmmss");
+        Date curDate = new Date(System.currentTimeMillis());
+        String time = formatter.format(curDate);
+        return time;
+    }
 
     public static String dateToString(DateFormat df, Date date) {
         return df.format(date);

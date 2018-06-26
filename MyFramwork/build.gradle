@@ -7,7 +7,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         flavorDimensions "versionCode"
@@ -21,17 +21,17 @@ android {
     }
     //多渠道
     productFlavors {
-        google {
-            manifestPlaceholders = [CHANNEL_VALUE: "google"]
+        google2 {
+            manifestPlaceholders = [CHANNEL_VALUE: "google1"]
         }
-        qh360 {
-            manifestPlaceholders = [CHANNEL_VALUE: "360"]
+        qh3602 {
+            manifestPlaceholders = [CHANNEL_VALUE: "3601"]
         }
-        baidu {
-            manifestPlaceholders = [CHANNEL_VALUE: "baidu"]
+        baidu2 {
+            manifestPlaceholders = [CHANNEL_VALUE: "baidu1"]
         }
-        self {
-            manifestPlaceholders = [CHANNEL_VALUE: "self"]
+        self2 {
+            manifestPlaceholders = [CHANNEL_VALUE: "self1"]
         }
     }
     //签名
@@ -69,7 +69,7 @@ android {
                 //具体的文件
 //                'exclude 'com/msn/util/bluetooth/BTConnect.java'
                 //需要姓名排序的时候可用
-                'exclude com.sanshang.li.mybaseframwork.util.PingYinUtils.java'
+                'exclude com/sanshang/li/mybaseframwork/util/PingYinUtils.java'
             }
         }
     }
@@ -79,13 +79,18 @@ android {
 //        sourceCompatibility JavaVersion.VERSION_1_8
 //        targetCompatibility JavaVersion.VERSION_1_8
 //    }
-    buildToolsVersion '27.0.1'
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+//    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14-RC1'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
@@ -97,12 +102,12 @@ dependencies {
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     //    compile 'io.reactivex:rxjava-joins:0.22.0'
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
-    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'org.greenrobot:eventbus:3.1.1'
     compile 'com.hwangjr.rxbus:rxbus:1.0.6'
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
 
     // 提供了自定义UI图片选择器的基本组件，自定义UI的需求需要添加该依赖
-    compile 'com.github.qingmei2:rximagepicker_support:0.4.0'
+    implementation 'com.github.qingmei2:rximagepicker_support:0.4.0'
 
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
