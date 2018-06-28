@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sanshang.li.mybaseframwork.record.audio.AudioActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_start_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始录音"/>
+
+    <Button
+        android:id="@+id/btn_pause_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="暂停录音"/>
+
+    <Button
+        android:id="@+id/btn_stop_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止录音"/>
+
+    <Button
+        android:id="@+id/btn_parse_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="主线程中转换"/>
+
+</LinearLayout>

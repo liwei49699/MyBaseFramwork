@@ -11,6 +11,9 @@ import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Stack;
 
+import cafe.adriel.androidaudioconverter.AndroidAudioConverter;
+import cafe.adriel.androidaudioconverter.callback.ILoadCallback;
+
 /**
  * Created by li on 2018/5/22.
  * WeChat 18571658038
@@ -50,6 +53,20 @@ public class MyApplication extends Application {
 
             LeakCanary.install(this);
         }
+
+        AndroidAudioConverter.load(this, new ILoadCallback() {
+            @Override
+            public void onSuccess() {
+                // Great!
+                
+                Log.d("--TAG--", "MyApplication onSuccess()" + "success");
+            }
+            @Override
+            public void onFailure(Exception error) {
+                // FFmpeg is not supported by device
+                error.printStackTrace();
+            }
+        });
     }
 
     @Override

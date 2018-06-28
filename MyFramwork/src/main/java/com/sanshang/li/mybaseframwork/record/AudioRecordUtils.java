@@ -99,6 +99,9 @@ public class AudioRecordUtils {
             /* ②设置音频文件的编码：AAC/AMR_NB/AMR_MB/Default 声音的（波形）的采样 */
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
 
+//            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.RAW_AMR);
+//            mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
             mFilePath = FolderPath + DateUtils.getTime() + ".amr" ;
             /* ③准备 */
             mMediaRecorder.setOutputFile(mFilePath);
@@ -118,9 +121,9 @@ public class AudioRecordUtils {
 
             Log.d("--TAG--", "AudioRecordUtils startRecord()" + startTime);
         } catch (IllegalStateException e) {
-            Log.i(TAG, "call startAmr(File mRecAudioFile) failed!" + e.getMessage());
+            Log.d(TAG, "call startAmr(File mRecAudioFile) failed!" + e.getMessage());
         } catch (IOException e) {
-            Log.i(TAG, "call startAmr(File mRecAudioFile) failed!" + e.getMessage());
+            Log.d(TAG, "call startAmr(File mRecAudioFile) failed!" + e.getMessage());
         }
     }
 
@@ -134,7 +137,6 @@ public class AudioRecordUtils {
         }
         endTime = System.currentTimeMillis();
 
-        //有一些网友反应在5.0以上在调用stop的时候会报错，翻阅了一下谷歌文档发现上面确实写的有可能会报错的情况，捕获异常清理一下就行了，感谢大家反馈！
         try {
             mMediaRecorder.stop();
             mMediaRecorder.reset();
@@ -258,6 +260,8 @@ public class AudioRecordUtils {
                 }
                 // 之后的文件，去掉头文件就可以了
                 // 注意:amr格式的头文件为6个字节的长度
+                // 原有的为pcm文件 没有头和尾 一般播放器无法播放
+                // 0B的pcm文件转成wav大小是44B 无损未压缩
                 else {
                     while (fileInputStream.read(myByte) != -1) {
                         fileOutputStream.write(myByte, 6, length - 6);
