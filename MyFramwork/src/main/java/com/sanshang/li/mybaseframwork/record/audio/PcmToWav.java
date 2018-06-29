@@ -26,7 +26,6 @@ public class PcmToWav {
 
     /**
      * 合并多个pcm文件为一个wav文件
-     *
      * @param filePathList    pcm文件路径集合
      * @param destinationPath 目标wav文件路径
      * @return true|false

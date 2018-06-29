@@ -18,6 +18,15 @@ android {
 //        jackOptions {
 //            enabled true
 //        }
+
+        /*externalNativeBuild {
+            cmake {
+                cppFlags ""
+                //armeabi-v7a已包含armeabi
+                abiFilters *//*'armeabi',*//* 'armeabi-v7a', 'x86'
+            }
+        }*/
+//
     }
     //多渠道
     productFlavors {
@@ -85,7 +94,23 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
+
+    //通过CMakeLists 配置JNI
+    //注释 通过so文件调用
+    /*externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }*/
+
+    // so文件不在jniLibs下时
+   /* sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }*/
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

@@ -201,7 +201,6 @@ public class AudioRecorder {
 
     /**
      * 将音频信息写入文件
-     *
      */
     private void writeDataTOFile(String currentFileName) {
         // new一个byte数组用来存一些字节数据，大小为缓冲区大小
@@ -220,7 +219,6 @@ public class AudioRecorder {
             throw new IllegalStateException(e.getMessage());
         } catch (FileNotFoundException e) {
             Log.e("AudioRecorder", e.getMessage());
-
         }
         while (status == Status.STATUS_START) {
             readsize = audioRecord.read(audiodata, 0, bufferSizeInBytes);

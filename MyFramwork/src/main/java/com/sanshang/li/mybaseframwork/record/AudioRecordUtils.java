@@ -95,13 +95,9 @@ public class AudioRecordUtils {
              * ②设置输出文件的格式：THREE_GPP/MPEG-4/RAW_AMR/Default THREE_GPP(3gp格式
              * ，H263视频/ARM音频编码)、MPEG-4、RAW_AMR(只支持音频且音频编码要求为AMR_NB)
              */
-            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
+            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.RAW_AMR);
             /* ②设置音频文件的编码：AAC/AMR_NB/AMR_MB/Default 声音的（波形）的采样 */
-            mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-
-//            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.RAW_AMR);
-//            mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-
+            mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
             mFilePath = FolderPath + DateUtils.getTime() + ".amr" ;
             /* ③准备 */
             mMediaRecorder.setOutputFile(mFilePath);
