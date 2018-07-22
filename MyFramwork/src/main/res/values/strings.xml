@@ -3,4 +3,7 @@
     <string name="tv_toast_message">文本</string>
     <string name="iv_sound_toast">toast图片</string>
     <string name="titleName">自定义标题</string>
+    <string name="btn_execute">执行</string>
+    <string name="btn_execute_other">执行其他</string>
+    <string name="btn_execute_weak">执行弱引用</string>
 </resources>

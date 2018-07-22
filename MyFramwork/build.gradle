@@ -104,12 +104,13 @@ android {
     }*/
 
     // so文件不在jniLibs下时
-   /* sourceSets {
+    /* sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
     }*/
 }
+
 
 
 dependencies {

@@ -23,3 +23,5 @@
 * 生成so文件,直接使用so文件
 
 
+### 5.leakCanary的简单使用
+* activity中的内存泄漏
