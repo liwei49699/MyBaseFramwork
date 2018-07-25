@@ -79,6 +79,7 @@ android {
 //                'exclude 'com/msn/util/bluetooth/BTConnect.java'
                 //需要姓名排序的时候可用
                 'exclude com/sanshang/li/mybaseframwork/util/PingYinUtils.java'
+                'exclude com.sanshang.li.mybaseframwork/*'
             }
         }
     }
@@ -113,6 +114,7 @@ android {
 
 
 
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 //    implementation 'com.android.support:appcompat-v7:27.1.0'
@@ -134,9 +136,15 @@ dependencies {
 
     // 提供了自定义UI图片选择器的基本组件，自定义UI的需求需要添加该依赖
     implementation 'com.github.qingmei2:rximagepicker_support:0.4.0'
-
+    //图片加载框架
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-
+    //音频编码格式转换
     compile 'com.github.adrielcafe:AndroidAudioConverter:0.0.8'
+
+    //stetho chrome调试框架
+    debugCompile  'com.facebook.stetho:stetho:1.4.1'
+    debugCompile  'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    //洪洋的OkHttpUtils
+    compile 'com.zhy:okhttputils:2.6.2'
 }

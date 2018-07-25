@@ -3,6 +3,7 @@ package com.sanshang.li.mybaseframwork.custom;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.sanshang.li.mybaseframwork.R;
 import com.sanshang.li.mybaseframwork.view.MyCircleBackProgressView;
@@ -25,7 +26,6 @@ public class MyCustomViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_custom_view);
         ButterKnife.bind(this);
 
-
         mMhpDialog.setProgressWithAnimation(100).setProgressListener(new MyHorizontalProgressView.ProgressListener() {
             @Override
             public void currentProgressListener(float currentProgress) {
@@ -42,6 +42,7 @@ public class MyCustomViewActivity extends AppCompatActivity {
                 Log.e("--TAG--", "currentProgressListener: " + currentProgress);
             }
         });
+
     }
 
     @OnClick(R.id.btn_start)

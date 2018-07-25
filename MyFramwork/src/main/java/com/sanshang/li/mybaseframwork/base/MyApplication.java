@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.os.Process;
 import android.util.Log;
 
+import com.facebook.stetho.Stetho;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.sanshang.li.mybaseframwork.util.LogUtils;
 import com.squareup.leakcanary.LeakCanary;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.Stack;
 
 import cafe.adriel.androidaudioconverter.AndroidAudioConverter;
 import cafe.adriel.androidaudioconverter.callback.ILoadCallback;
+import okhttp3.OkHttpClient;
 
 /**
  * Created by li on 2018/5/22.
@@ -67,6 +71,25 @@ public class MyApplication extends Application {
                 error.printStackTrace();
             }
         });
+
+        initStetho();
+    }
+
+    private void initStetho() {
+
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                        .build());
+
+        //注意:下面这段话是为OkHttpClient配置拦截器,只有用这个OkHttpClient请求数据才能被拦截
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addNetworkInterceptor(new StethoInterceptor())//添加Stetho的拦截器
+                .build();
+
+        //使用自定义的OkHttpClient
+        OkHttpUtils.initClient(client);
     }
 
     @Override

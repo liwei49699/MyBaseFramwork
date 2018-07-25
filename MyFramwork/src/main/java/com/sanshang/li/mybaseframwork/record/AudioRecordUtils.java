@@ -143,6 +143,7 @@ public class AudioRecordUtils {
             mFilePath = "";
 
         }catch (RuntimeException e){
+
             /*mMediaRecorder.reset();
             mMediaRecorder.release();
             mMediaRecorder = null;*/
