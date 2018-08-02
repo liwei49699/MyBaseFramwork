@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tc="http://schemas.android.com/apk/res-auto"
+    android:padding="40dp"
+    tools:context="com.sanshang.li.mybaseframwork.custom.draw.MyDrawActivity">
+
+    <com.sanshang.li.mybaseframwork.custom.draw.MyDrawBoardView
+        android:id="@+id/mdbv_draw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tc:boardBack="@color/colorPrimary"
+        tc:paintColor="@color/colorAccent"
+        tc:paintWidth="3dp"/>
+
+    <com.sanshang.li.mybaseframwork.custom.progress.CompletedView
+        android:id="@+id/tasks_view"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="@color/black_color"
+        tc:circleColor="@color/color_spn_back"
+        tc:radius="100dp"
+        android:visibility="gone"
+        tc:ringBgColor="@color/white2"
+        tc:ringColor="@color/colorRed"
+        tc:strokeWidth="20dp" />
+
+</RelativeLayout>

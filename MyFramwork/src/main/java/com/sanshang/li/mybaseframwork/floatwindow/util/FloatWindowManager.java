@@ -8,6 +8,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.sanshang.li.mybaseframwork.floatwindow.view.FloatWindowHintView;
@@ -105,6 +106,7 @@ public class FloatWindowManager {
     }
 
     private  FloatWindowHintView hintView;
+    private  FloatWindowHintView hintView1;
     private  WindowManager.LayoutParams hintParams;
 
     /**
@@ -117,7 +119,8 @@ public class FloatWindowManager {
         int screenHeight = windowManager.getDefaultDisplay().getHeight();
 
         if (hintView == null) {
-            hintView = new FloatWindowHintView(context);
+            hintView = new FloatWindowHintView(context,"hint1");
+            hintView1 = new FloatWindowHintView(context,"hint2");
         }
 
         if (hintParams == null) {
@@ -134,8 +137,14 @@ public class FloatWindowManager {
         }
 
         windowManager.addView(hintView, hintParams);
+        windowManager.addView(hintView1, hintParams);
 
+        Log.d("--TAG--", "FloatWindowManager createHintWindow()" + hintView);
+        Log.d("--TAG--", "FloatWindowManager createHintWindow()" + hintView1);
         hintWindowShow = true;
+
+        hintView.setIsShowing(true);
+
 
         dismissWindow();
     }
@@ -144,16 +153,26 @@ public class FloatWindowManager {
 
     public void dismissHintWindow() {
 
+        hintView.setVisibility(View.GONE);
+        hintView1.setVisibility(View.GONE);
+
         if (!hintWindowShow) {
             Log.e(TAG, "window can not be dismiss cause it has not been added");
             return;
         }
 
-        hintWindowShow = false;
-        if (windowManager != null && hintView != null) {
+//        hintWindowShow = false;
+        if (windowManager != null && hintView != null && hintView.getIsShowing()) {
 
             hintView.setIsShowing(false);
             windowManager.removeViewImmediate(hintView);
+            return;
+        }
+        if (windowManager != null && hintView1 != null) {
+
+            hintView1.setIsShowing(false);
+            windowManager.removeViewImmediate(hintView1);
+            return;
         }
     }
 

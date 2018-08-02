@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.sanshang.li.mybaseframwork.systemfloat.FloatMenuActivity;
 
 public class FloatWindowHintView extends LinearLayout {
 
+	private final LinearLayout llRoot;
 	/**
 	 * 记录大悬浮窗的宽度
 	 */
@@ -29,36 +31,47 @@ public class FloatWindowHintView extends LinearLayout {
 	private boolean mIsShowing = false;
 	private Context mContext;
 
-	public FloatWindowHintView(final Context context) {
+	public FloatWindowHintView(final Context context, String hint1) {
 		super(context);
 		mContext = context;
 		LayoutInflater.from(context).inflate(R.layout.float_window_hint, this);
 
-		final LinearLayout llRoot = findViewById(R.id.ll_root);
+		llRoot = findViewById(R.id.ll_root);
 		viewWidth = llRoot.getLayoutParams().width;
 		viewHeight = llRoot.getLayoutParams().height;
+
+		((Button)findViewById(R.id.btn_do_thing)).setText(hint1);
 
 		findViewById(R.id.btn_do_thing).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
 				//做逻辑操作
-				Toast.makeText(context, "21313123", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(context, "21313123", Toast.LENGTH_SHORT).show();
+//
+//				//跳到填写报警信息界面
+//				Intent intent = new Intent(mContext, FloatMenuActivity.class);
+//				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//				PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
+//				try {
+//					// 1.监听到Home键按下后 2.在桌面打开 activity
+//					// 立即调用startActivity启动Activity会有5s延迟
+//					pendingIntent.send();
+//				} catch (PendingIntent.CanceledException e) {
+//					e.printStackTrace();
+//				}
+//
+//				FloatWindowManager.getInstance().dismissHintWindow();
+//				FloatWindowManager.getInstance().applyOrShowFloatWindow(mContext);
 
-				//跳到填写报警信息界面
-				Intent intent = new Intent(mContext, FloatMenuActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
-				try {
-					// 1.监听到Home键按下后 2.在桌面打开 activity
-					// 立即调用startActivity启动Activity会有5s延迟
-					pendingIntent.send();
-				} catch (PendingIntent.CanceledException e) {
-					e.printStackTrace();
-				}
+				Button button = new Button(mContext);
+				button.setText("1234");
+				button.setWidth(200);
+				button.setHeight(300);
+				int height = button.getHeight();
 
-				FloatWindowManager.getInstance().dismissHintWindow();
-				FloatWindowManager.getInstance().applyOrShowFloatWindow(mContext);
+				Toast.makeText(mContext, "" + height, Toast.LENGTH_SHORT).show();
+				llRoot.addView(button);
 			}
 		});
 
@@ -68,7 +81,7 @@ public class FloatWindowHintView extends LinearLayout {
 
 				//返回 销毁对话框
 				FloatWindowManager.getInstance().dismissHintWindow();
-				FloatWindowManager.getInstance().applyOrShowFloatWindow(mContext);
+//				FloatWindowManager.getInstance().applyOrShowFloatWindow(mContext);
 			}
 		});
 	}
@@ -76,5 +89,10 @@ public class FloatWindowHintView extends LinearLayout {
 	public void setIsShowing(boolean isShowing) {
 
 		mIsShowing = isShowing;
+	}
+
+	public boolean getIsShowing(){
+
+		return mIsShowing;
 	}
 }

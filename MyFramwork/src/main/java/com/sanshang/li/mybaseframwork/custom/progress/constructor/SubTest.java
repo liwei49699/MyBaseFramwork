@@ -1,4 +1,4 @@
-package com.sanshang.li.mybaseframwork.custom.progress.DefaultConstructor;
+package com.sanshang.li.mybaseframwork.custom.progress.constructor;
 
 /**
  * Created by li on 2018/7/23.

@@ -9,6 +9,13 @@ import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import static android.util.TypedValue.COMPLEX_UNIT_DIP;
+import static android.util.TypedValue.COMPLEX_UNIT_IN;
+import static android.util.TypedValue.COMPLEX_UNIT_MM;
+import static android.util.TypedValue.COMPLEX_UNIT_PT;
+import static android.util.TypedValue.COMPLEX_UNIT_PX;
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
+
 /**
  * Created by li on 2018/5/25.
  * WeChat 18571658038
@@ -126,5 +133,41 @@ public class DeviceUtils {
             statusBarHeight = context.getResources().getDimensionPixelSize(resourceId);
         }
         return statusBarHeight;
+    }
+
+    // 从这个函数的实现可以看出android系统对dp和sp处理的区别
+    public static float applyDimension(int unit, float value,
+                                       DisplayMetrics metrics) {
+
+        switch (unit) {
+
+            case COMPLEX_UNIT_PX:
+
+                return value;   // px不需要做转换
+
+            case COMPLEX_UNIT_DIP:
+
+                return value * metrics.density;   // dp转换成px
+
+            case COMPLEX_UNIT_SP:
+
+                return value * metrics.scaledDensity;  // sp转换成px
+
+            case COMPLEX_UNIT_PT:
+
+                return value * metrics.xdpi * (1.0f/72);
+
+            case COMPLEX_UNIT_IN:
+
+                return value * metrics.xdpi;
+
+            case COMPLEX_UNIT_MM:
+
+                return value * metrics.xdpi * (1.0f/25.4f);
+
+        }
+
+        return 0;
+
     }
 }

@@ -62,33 +62,39 @@
         </activity>
         <activity android:name=".memory.MyMemoryActivity">
         </activity>
-        <!-- <activity -->
-        <!-- android:name=".floatwindow.FloatWindowActivity" -->
-        <!-- android:theme="@style/AppTheme"> -->
-        <!-- </activity> -->
 
-
-        <!-- <service -->
-        <!-- android:name=".floatwindow.service.FloatWindowService" -->
-        <!-- android:enabled="true" -->
-        <!-- android:exported="true"> -->
-        <!-- </service> -->
+        <service
+            android:name=".floatwindow.service.FloatWindowService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
 
         <activity
             android:name=".systemfloat.FloatMenuActivity"
             android:theme="@style/AppTheme">
-
         </activity>
         <activity android:name=".custom.CircleProgressActivity">
         </activity>
         <activity android:name=".stetho.StethoActivity">
+        </activity>
+        <activity
+            android:name=".floatwindow.FloatWindowActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".custom.gesture.GestureActivity">
+        </activity>
+        <activity android:name=".custom.draw.MyDrawActivity">
+        </activity>
+        <activity android:name=".custom.group.GroupViewActivity">
+
+        </activity>
+        <activity android:name=".custom.MyViewTravelActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
-
             </intent-filter>
-
         </activity>
     </application>
 

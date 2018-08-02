@@ -21,4 +21,38 @@
         <attr name="barBack" format="reference|color"/>
 
     </declare-styleable>
+
+    <!--自定义画板View的属性-->
+    <declare-styleable name="MyDrawBoardView">
+
+        <attr name="boardBack" format="color"/>
+        <attr name="paintColor" format="color"/>
+        <attr name="paintWidth" format="dimension"/>
+
+    </declare-styleable>
+
+    <!--圆弧进度条-->
+    <declare-styleable name="TasksCompletedView">
+        <!--內圆半径-->
+        <attr name="radius" format="dimension"/>
+        <!--圆环宽度-->
+        <attr name="strokeWidth" format="dimension"/>
+        <!--內圆颜色-->
+        <attr name="circleColor" format="color"/>
+        <!--圆环颜色-->
+        <attr name="ringColor" format="color"/>
+        <!--圆环背景色-->
+        <attr name="ringBgColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="StatisticsView">
+
+        <attr name="maxValue" format="integer"></attr>
+        <attr name="dividerCount" format="integer"></attr>
+        <attr name="title1" format="string"></attr>
+        <attr name="lineColor" format="color"></attr>
+        <attr name="textColor1" format="color"></attr>
+        <attr name="pathColor" format="color"></attr>
+    </declare-styleable>
+
 </resources>
