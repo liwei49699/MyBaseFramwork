@@ -1,1 +1,1 @@
-include ':MyFramwork'
+include ':MyFramwork', ':uikit'
